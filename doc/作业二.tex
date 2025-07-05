@@ -1,0 +1,44 @@
+%! Author = strik0r
+%! Date = 2024/12/18
+
+\documentclass[openany, 10pt]{ctexart}
+
+% Preamble
+% TITLE AND AUTHOR
+\newcommand{\thetitle}{信息技术基础认知与实践}
+\newcommand{\thesubtitle}{Python 方向 \quad 作业一}
+\title{\thetitle}
+\author{Strik0r
+\thanks{email: strik0rium@gmail.com}}
+
+% 设置页面尺寸和边距
+\newif\ifaltgeometry   % 定义一个开关
+\altgeometryfalse
+% \altgeometrytrue
+
+% Packages
+\input{utils/styles/documentsettings}
+\input{utils/styles/lists}
+\input{utils/styles/titlesettings}
+\input{utils/styles/codeblocks}
+\input{utils/styles/frame}
+\input{utils/styles/theorems}
+\input{utils/styles/custom_commands}
+\input{utils/styles/tikz-settings.tex}
+
+\cftsetindents{section}{0em}{1em}
+\cftsetindents{subsection}{1em}{2em}
+\cftsetindents{subsubsection}{3em}{1.2em}
+
+% Document
+\begin{document}
+
+% \maketitle
+\input{utils/titlepage.tex}
+
+\newpage
+{\small \setlength{\parskip}{0em} \tableofcontents}
+
+% TODO
+
+\end{document}
