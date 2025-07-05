@@ -101,7 +101,8 @@ fields = [
 def register_student():
     print("学生信息录入")
 
-    responses = {field: input(f"请输入{label}: ").strip() for field, label in fields}
+    responses = {field: input(f"请输入{label}: ").strip()
+                 for field, label in fields}
     student = Student(**responses)
 
     print("\n学生信息录入完成!")
