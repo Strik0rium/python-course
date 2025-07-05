@@ -59,5 +59,53 @@ Python 的字符串可以帮助我们减轻工作量。
 本题要求我们把学生管理系统的功能列表打印到控制台。
 \lstinputlisting{../exec1/hw2.py}
 
+\section{学生信息的录入与显示}
+
+本题要求我们实现在控制台中录入学生信息的功能，为了方便今后的编码，
+我们首先将设计一个名为 \lstinline`Student` 的数据类，
+为此我们需要引入 Python 标准库中的 \lstinline|dataclasses.dataclass| 装饰器。
+通过实现 \lstinline|__str__| 魔法方法，我们可以设计一个 \lstinline|Student| 实例的字符串表示。
+\begin{lstlisting}
+from dataclasses import dataclass
+
+
+@dataclass
+class Student:
+    stu_id: str
+    name: str
+    address: str
+    birthday: str
+    telephone: str
+    email: str
+
+    def __str__(self):
+        return (f"学号: {self.stu_id}, "
+                f"姓名: {self.name}, "
+                f"地址: {self.address}, "
+                f"生日: {self.birthday}, "
+                f"电话号码: {self.telephone}, "
+                f"电子邮件: {self.email}")
+\end{lstlisting}
+
+接下来，我们使用一个字典把各个字段的中文名称存储下来，然后利用字典推导式创建用于构造 \lstinline|Student| 类对象的字典，再把它传入给 \lstinline|Student| 类的构造函数。
+\begin{lstlisting}
+fields = [
+        ('stu_id', '学号'),
+        ('name', '姓名'),
+        ('address', '地址'),
+        ('birthday', '生日'),
+        ('telephone', '电话号码'),
+        ('email', '电子邮件'),
+    ]
+
+def register_student():
+    print("学生信息录入")
+
+    responses = {field: input(f"请输入{label}: ").strip() for field, label in fields}
+    student = Student(**responses)
+
+    print("\n学生信息录入完成!")
+    print(student)
+\end{lstlisting}
 
 \end{document}
