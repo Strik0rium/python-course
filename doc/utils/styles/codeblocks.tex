@@ -1,0 +1,48 @@
+% 配置 Menlo 字体
+\usepackage{fontspec}
+\setmonofont{JetBrains Mono}
+
+% 支持代码块显示
+\usepackage{fancyvrb}
+\usepackage{listings}
+\usepackage{xcolor}
+
+% 通用配置
+\lstset{
+    basicstyle=\ttfamily\small\heiti, % 设置代码基本样式
+    % numbers=left,                    % 在左侧显示行号
+    % numberstyle=\small\fontspec{Menlo}, % 使用 Menlo 字体显示行号
+    % stepnumber=5,                    % 行号步长
+    % numbersep=8pt,                   % 行号与代码的距离
+    % frame=leftline,                  % 左侧显示边框线
+    % framextopmargin=0em,
+    % aboveskip=0.5em,
+    % framexbottommargin=0em,
+    % belowskip=-0.5em,
+    xleftmargin=2em,                 % 代码块的左边界缩进
+    xrightmargin=2em,
+    % framexleftmargin=0pt,            % 边框的额外左边距
+    breaklines=true,                 % 代码超出行自动换行
+    showstringspaces=false,          % 禁止在字符串中显示空格
+    % extendedchars=false,             % 避免章节标题等汉字显示问题
+    % escapeinside={(*}{*)},           % 支持在代码块中短暂逃逸到 LaTeX 环境
+    keepspaces=true,
+}
+
+\lstdefinelanguage{CFG}{
+  morekeywords={
+    if, else, abstract, assert, boolean, break, byte, case, catch,
+    char, class, const, continue, default, do, double, enum, extends,
+    final, finally, float, for, goto, implements, import, instanceof,
+    int, interface, long, native, new, package, private, protected,
+    public, return, short, static, strictfp, super, switch, synchronized,
+    this, throw, throws, transient, try, void, volatile, while,
+    id, relop, number, letter, digit
+  },
+  alsoletter={->},
+  keywordstyle=\bfseries,
+}
+
+\renewcommand{\lstlistingname}{代码块}  % 改掉默认的 Listing
+\DeclareCaptionFormat{mylst}{\hrule #1. #2#3}
+\captionsetup[lstlisting]{format=mylst,labelfont=bf,singlelinecheck=off,labelsep=space}

@@ -1,0 +1,29 @@
+%% 导入必要的宏包
+\usepackage{tasks}
+\usepackage{enumitem}
+
+%% 设置 itemize 环境的全局样式
+\setlist[itemize]{
+    itemsep=0pt,       % 列表项之间的间距
+    topsep=-0.5em,        % 列表与上下文之间的间距
+    parsep=0pt,        % 列表段落的额外间距
+    leftmargin=2em,     % 列表的左边距
+    % aboveskip=0.5em,
+    % belowskip=0.5em,
+}
+
+%% 设置 enumerate 环境的全局样式
+\setlist[enumerate]{
+    itemsep=0pt,       % 列表项之间的间距
+    topsep=-0.5em,        % 列表与上下文之间的间距
+    parsep=0pt,        % 列表段落的额外间距
+    leftmargin=2em,     % 列表的左边距
+    % aboveskip=0.5em,
+    % belowskip=0.5em,
+}
+
+\NewTasksEnvironment[
+    label=\Alph*. ,
+    after-item-skip=0pt,
+    item-indent=3.1em,
+]{choicequestion}

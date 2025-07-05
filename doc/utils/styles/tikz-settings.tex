@@ -1,0 +1,54 @@
+%==================== TikZ & Circuitikz 绘图设置 ====================%
+
+\usepackage{tikz, pgfplots, tikz-cd, tikz-3dplot}
+\pgfplotsset{compat=1.18}
+
+\usetikzlibrary{
+  decorations.markings,
+  angles,
+  quotes,
+  automata,
+  positioning
+}
+
+% 有限状态机风格
+\tikzset{
+  myfsm/.style={
+    node distance=6em,
+    on grid,
+    auto,
+    every edge/.append style={-Triangle},
+    every loop/.append style={Triangle-},
+    every initial by arrow/.style={-Triangle}
+  }
+}
+
+% 通用系统组件图风格
+\tikzset{
+  system/.style={
+    component/.style={
+      draw,
+      rectangle,
+      minimum width=8em,
+      minimum height=3em,
+      align=center
+    },
+    node distance=4em,
+    -Triangle,
+    >=Stealth
+  }
+}
+
+% 圆圈文字命令
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+  \node[shape=circle,draw,inner sep=0.5pt] (char) {\normalfont #1};}}
+
+% CircuiTikZ 设置
+\usepackage[europeanresistors, americanports, siunitx]{circuitikz}
+
+% \ctikzset{            % 可按需取消注释启用
+%     logic ports=ieee,
+%     logic ports/scale=0.7,
+%     resistor = european,
+%     % voltages = american voltages,
+% }

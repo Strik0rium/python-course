@@ -1,0 +1,57 @@
+%% 导入 amsthm 宏包
+\usepackage{amsthm}
+
+%% 定义第一种定理样式
+\newtheoremstyle{mytheoremstyle}
+    {1em}{1em}{}{}{\bfseries}{}%
+    {0.5em plus 0.2em minus 0.1em}%
+    {\thmname{#1}\thmnumber{ #2}.\thmnote{ (#3).}}
+
+\theoremstyle{mytheoremstyle}
+\newtheorem{definition}{定义}[section]
+\newtheorem{example}{例}[section]
+\newtheorem{algorithm}{算法}[section]
+\newtheorem*{sol}{解}
+\newtheorem{question}{问题}[section]
+\newtheorem*{answer}{解答}
+
+%% 定义第二种定理样式
+\newtheoremstyle{my2theoremstyle}
+    {1em}{1em}{\kaishu}{}{\bfseries}{}%
+    {0.5em plus 0.2em minus 0.1em}%
+    {\thmname{#1}\thmnumber{ #2}.\thmnote{ (#3).}}
+
+\theoremstyle{my2theoremstyle}
+\newtheorem{theorem}{定理}[section]
+\newtheorem{law}{定律}[section]
+\newtheorem{corollary}{推论}
+\newtheorem{proposition}{命题}
+\newtheorem{lemma}{引理}
+\newtheorem{axiom}{公理}
+\newtheorem{property}{性质}
+
+%% 定义第三种定理样式
+\newtheoremstyle{my3theoremstyle}
+    {1em}{1em}{}{}{\kaishu}{}%
+    {0.5em plus 0.2em minus 0.1em}%
+    {\thmname{#1}\thmnumber{ #2}.\thmnote{ (#3).}}
+
+\theoremstyle{my3theoremstyle}
+\newtheorem*{remark}{注}
+\newtheorem*{cmt}{评注}
+\newtheorem*{analysis}{分析}
+
+%% 定义第四种定理样式
+\newtheoremstyle{my4theoremstyle}
+    {1em}{1em}{
+        \hangindent=1.6em
+        \hangafter=1
+    }{0em}{}{}%
+    {0.5em plus 0.2em minus 0.1em}%
+    {\thmname{#1}\thmnumber{ #2}.\thmnote{ (#3).}}
+
+\theoremstyle{my4theoremstyle}
+\newtheorem{exercise}{}[]
+
+\renewenvironment{proof}{\par {\kaishu 证明.}\normalfont}{\qed\par}
+

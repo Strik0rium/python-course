@@ -1,0 +1,48 @@
+\usepackage[framemethod=TikZ]{mdframed}
+\mdfsetup{
+  linewidth=0.4pt,
+  frametitlebackgroundcolor=white, % Set to 'white' or 'transparent'
+  frametitlefont=\heiti\bfseries, % Title font customization
+  frametitleaboveskip=10pt,       % Space above frame title
+  frametitlebelowskip=5pt,        % Space below frame title
+  frametitlealignment=\raggedright, % Align frame title to the left
+  roundcorner=5pt,
+  skipabove=1em, % 框与上方文本的距离
+  skipbelow=1em  % 框与下方文本的距离
+}
+
+\definecolor{strik0r-blue}{HTML}{A3CCE0}
+\definecolor{strik0r-pink}{HTML}{FFB6C2}
+\definecolor{strik0r-green}{HTML}{008080}
+
+\newmdenv[
+  linewidth=0pt,
+  linecolor=transparent,
+  frametitlebackgroundcolor=strik0r-blue!40,
+  backgroundcolor=strik0r-blue!40,
+]{hintbox}
+
+\newmdenv[
+  linewidth=0pt,
+  linecolor=transparent,
+  frametitlebackgroundcolor=strik0r-green!15,
+  backgroundcolor=strik0r-green!15,
+]{notebox}
+
+\newmdenv[
+  linewidth=0pt,
+  linecolor=transparent,
+  frametitlebackgroundcolor=strik0r-pink!50,
+  backgroundcolor=strik0r-pink!50,
+]{warningbox}
+
+\usepackage{environ}
+
+\NewEnviron{npubox}{
+    \begin{center}
+        \begin{tabular}{p{4em}p{34em}}
+            \raisebox{-22pt}[0pt][0pt]{\includegraphics[width=4em]{pic/npu_1.png}} 
+            & \BODY
+        \end{tabular}
+    \end{center}
+}
