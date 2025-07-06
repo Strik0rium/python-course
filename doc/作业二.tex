@@ -92,4 +92,21 @@ if __name__ == '__main__':
             print("无效输入，请重新输入")
 \end{lstlisting}
 
+\section{邮箱合法性验证}
+
+本题要求我们验证给定的字符串是否是一个合法的邮箱，
+要求邮箱只含有一个 \lstinline|@| 并且不能出现在开始位置，
+邮箱需要用 \lstinline|.com| 或者 \lstinline|.cn| 结束。
+
+我们使用 Python 的 \lstinline|re| 模块构造符合上述规则的正则表达式来解决这个问题：
+\lstinputlisting{../exec2/hw_3.py}
+
+在上述正则表达式中，\lstinline|^| 用于匹配字符串开头，
+\lstinline|?!| 称为{\bfseries 负前瞻}（negative lookahead），
+断言当前位置后面不是一个 \lstinline|?!|，从而要求邮箱地址不能以 \lstinline|@| 开头。
+正则表达式的第二部分 \lstinline|[^@]*| 匹配任意数量（包括 $0$ 个）的不是 \lstinline|@| 的字符。
+第三部分 \lstinline|@| 匹配唯一的 \lstinline|@| 字符，第四部分 \lstinline|[^@]*| 与第二部分相同，
+最后一部分 \lstinline|\.(com|cn)| 中的 \lstinline|\.| 是转义字符，
+后面的 \lstinline|(com|cn)| 表示或逻辑，\lstinline|$| 匹配字符串结尾。
+
 \end{document}
