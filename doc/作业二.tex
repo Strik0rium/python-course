@@ -109,4 +109,36 @@ if __name__ == '__main__':
 最后一部分 \lstinline|\.(com|cn)| 中的 \lstinline|\.| 是转义字符，
 后面的 \lstinline|(com|cn)| 表示或逻辑，\lstinline|$| 匹配字符串结尾。
 
+常用的正则表达式的匹配规则如表 \ref{tab: 常见的正则表达式匹配规则} 所示。
+
+\begin{table}[htp]
+    \small \centering
+    \caption{常见的正则表达式匹配规则}
+    \label{tab: 常见的正则表达式匹配规则}
+    \begin{tabular}{m{2em}|m{38em}}
+        \hline
+        {\bfseries 符号}
+        & {\bfseries 含义} \\ \hline
+        \lstinline|.| & 匹配任意一个字符 \\ \hline
+        \lstinline|^| & 匹配字符串的开头 \\ \hline
+        \lstinline|$| & 匹配字符串的结尾 \\ \hline
+        \lstinline|\d| & 匹配任意一个数字 \\ \hline
+        \lstinline|\s| & 匹配空白字符 \\ \hline
+        \lstinline|\w| & 匹配字母数字 \\ \hline
+        \lstinline|*| & 匹配器后面的表达式零次或多次，例如 \lstinline|*\d| 将匹配零个或多个数字 \\ \hline
+        \lstinline|+| & 匹配其后面的表达式一次或多次 \\ \hline
+        \lstinline|[]| & 匹配方括号中的任意字符，也可以用 \lstinline|-| 指定一个范围，例如 \lstinline|[a-d]| 将匹配 \lstinline|a| 到 \lstinline|d| 范围内的任意字符 \\ \hline
+    \end{tabular}
+\end{table}
+
+这里需要注意的一个细节是，虽然 \lstinline|^| 在上述正则表达式中出现了三次，
+但是它们的作用和含义完全不同。第一个 \lstinline|^| 用于匹配字符串的开头，
+而方括号中的 \lstinline|^| 则用于表示集合取反，
+于是 \lstinline|[^@]| 表示任意的非 \lstinline|@| 字符。
+类似地，\lstinline|[^0-9]| 可以匹配一个不是数字的字符，
+\lstinline|[^a-zA-Z]| 匹配一个不是英文字母的字符，
+而 \lstinline|^hello| 则表示字符串 \lstinline|hello| 出现在字符串最开始的位置。
+这里的关键就是看 \lstinline|^| 是否出现在方括号 \lstinline|[]| 内部，
+并且是不是紧跟着 \lstinline|[| 出现的。
+
 \end{document}
