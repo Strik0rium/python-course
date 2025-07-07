@@ -1,0 +1,55 @@
+%! Author = strik0r
+%! Date = 2024/12/18
+
+\documentclass[openany, 10pt]{ctexart}
+
+% Preamble
+% TITLE AND AUTHOR
+\newcommand{\thetitle}{信息技术基础认知与实践}
+\newcommand{\thesubtitle}{Python 方向 \quad 作业三}
+\title{\thetitle}
+\author{Strik0r
+\thanks{email: strik0rium@gmail.com}}
+
+% 设置页面尺寸和边距
+\newif\ifaltgeometry   % 定义一个开关
+\altgeometryfalse
+% \altgeometrytrue
+
+% Packages
+\input{utils/styles/documentsettings}
+\input{utils/styles/lists}
+\input{utils/styles/titlesettings}
+\input{utils/styles/codeblocks}
+\input{utils/styles/frame}
+\input{utils/styles/theorems}
+\input{utils/styles/custom_commands}
+\input{utils/styles/tikz-settings.tex}
+
+\cftsetindents{section}{0em}{1em}
+\cftsetindents{subsection}{1em}{2em}
+\cftsetindents{subsubsection}{3em}{1.2em}
+
+% Document
+\begin{document}
+
+% \maketitle
+\input{utils/titlepage.tex}
+
+\newpage
+{\small \setlength{\parskip}{0em} \tableofcontents}
+
+\section{学生信息管理系统}
+    
+\section{字符串词频统计}
+    
+    本题要求我们统计字符串 \lstinline|"hello world hello python"| 中每个单词出现的次数。
+    我们可以使用 Python 标准库中的 \lstinline|collections.Counter| 来完成这个任务。
+    \lstinputlisting{../exec3/hw2.py}
+
+    上述代码中，\lstinline|.split()| 方法使用空格把字符串分割为一个列表，
+    \lstinline|collections.Counter| 的构造函数接收一个列表构造一个实例，
+    需要说明的是 \lstinline|collections.Counter| 是字典 \lstinline|dict| 的子类型，
+    因此我们可以再把 \lstinline|counter| 传给字典类型的构造函数 \lstinline|dict()| 来获取统计词频的字典。
+
+\end{document}
